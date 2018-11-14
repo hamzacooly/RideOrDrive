@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Ride:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Ride_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Ride/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Ride" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="com.googlecode.objectify:objectify:5.1.22" />
+          <element id="library" level="project" name="com.google.appengine:appengine-api-1.0-sdk:Release" />
+          <element id="library" level="project" name="javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="com.google.endpoints:endpoints-framework:Release" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
