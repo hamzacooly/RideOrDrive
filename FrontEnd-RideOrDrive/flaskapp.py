@@ -32,7 +32,7 @@ def result():
 
         ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
 
-        return render_template('web/result.html', source=source, destination=destination)
+        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber)
     else:
         print("HOW DID I DO A GET??")
         abort(403)
