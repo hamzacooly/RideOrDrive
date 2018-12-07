@@ -5,19 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Raleway" rel="stylesheet">
+   
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Raleway" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css')}}">
 
-    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons/css/ionicons.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='fonts/fontawesome/css/font-awesome.min.css')}}">
 
-    <!-- Theme Style -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
   </head>
   <body>
       <header role="banner">
@@ -60,18 +58,47 @@
             </div>
           </div>
           </section>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Sign In</h5>
+                    <form class="form-signin">
+                      <div class="form-label-group">
+                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="inputEmail">Email address</label>
+                      </div>
+        
+                      <div class="form-label-group">
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <label for="inputPassword">Password</label>
+                      </div>
+        
+                      <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Remember password</label>
+                      </div>
+                      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
   </body>
 </script>
 <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/jquery-migrate-3.0.0.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery-migrate-3.0.0.js')}}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery.waypoints.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery.stellar.min.js')}}"></script>
+
+<script src="{{ url_for('static', filename='js/main.js')}}"></script>
 
 </html>
