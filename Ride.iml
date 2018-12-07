@@ -14,13 +14,22 @@
     <facet type="app-engine-standard" name="Google App Engine Standard">
       <configuration />
     </facet>
+    <facet type="google-appengine-python" name="Google App Engine (Python)">
+      <configuration>
+        <option name="rootFolder" value="" />
+        <option name="sdkFolder" value="$USER_HOME$/Downloads/google-cloud-sdk/platform/google_appengine" />
+        <option name="templatesFolder" value="" />
+        <option name="oauth2" value="false" />
+        <option name="deployConfigured" value="false" />
+        <option name="saveCredentials" value="false" />
+      </configuration>
+    </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
+  <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.7" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Google App Engine Standard Local Server" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="javax.servlet:servlet-api:2.5" level="project" />
@@ -28,5 +37,6 @@
     <orderEntry type="library" name="com.google.appengine:appengine-api-1.0-sdk:Release" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" name="com.google.endpoints:endpoints-framework:Release" level="project" />
+    <orderEntry type="library" name="Google App Engine SDK" level="project" />
   </component>
 </module>

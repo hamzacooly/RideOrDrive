@@ -126,7 +126,7 @@
                         <h5 class="card-title text-muted text-uppercase text-center">Lyft</h5>
                         <h6 class="card-price text-center"><span class="period"></span></h6>
                         <hr>
-                        <ul class="fa-ul">
+                        <ul class="fa-ul" id="lyft">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
@@ -178,6 +178,19 @@
     for(i = 0; i < uber_stuff['prices'].length; i++){
       uber_box[i].innerHTML = uber_stuff['prices'][i]['display_name'] + " - " + uber_stuff['prices'][i]['estimate'];
     }
+
+
+    var lyft_stuff = {{ lyft | tojson }};
+
+    var lyft_box = document.querySelectorAll("#lyft > li");
+    for(i = 0; i < lyft_stuff['cost_estimates'].length; i++){
+        var curr = lyft_stuff['cost_estimates'][i];
+      lyft_box[i].innerHTML = curr['display_name'] + " - " + "$" + curr['estimated_cost_cents_min']/100 + "-" + curr['estimated_cost_cents_max']/100;
+    }
+
+
+
+
 
     var geocoder = new google.maps.Geocoder();
     var address = source;
