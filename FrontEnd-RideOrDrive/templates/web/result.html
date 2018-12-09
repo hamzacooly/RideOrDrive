@@ -190,11 +190,7 @@
 
     var lots_stuff = {{ lots | tojson }};
 
-var lots_box = document.querySelectorAll("#lots > li");
-for(i = 0; i < lots_stuff.length; i++){
-    var curr = lots_stuff[i];
-    lots_box[i].innerHTML = curr['name'] + " - " + "$" + curr['price, hourly'] + "- Addr:" + curr['address'] ;
-}
+
 
 
 
@@ -204,24 +200,20 @@ for(i = 0; i < lots_stuff.length; i++){
 
     function requestUber() {
 
-        var slat="{{slat}}",slong="{{slong}}",dlat="{{dlat}}",dlong="{{dlong}}";
+        var slat = "{{slat}}", slong = "{{slong}}", dlat = "{{dlat}}", dlong = "{{dlong}}";
         var sourceURL = "{{sourceURL}}";
         var destinationURL = "{{destinationURL}}"
 
-
-
-<<<<<<< HEAD
-
-        myURL= "https://m.uber.com/?client_id=n0W4YyBkA8BvBSt7UtKTHGvISpyR22ga&action=setPickup&pickup[latitude]="+slat+"&pickup[longitude]="+slong+"&pickup[nickname]="+sourceURL+"&dropoff[latitude]="+dlat+"&dropoff[longitude]="+dlong+"&dropoff[nickname]="+destinationURL+"&product_id=a1111c8c-c720-46c3-8534-2fcdd730040d";
+        myURL = "https://m.uber.com/?client_id=n0W4YyBkA8BvBSt7UtKTHGvISpyR22ga&action=setPickup&pickup[latitude]=" + slat + "&pickup[longitude]=" + slong + "&pickup[nickname]=" + sourceURL + "&dropoff[latitude]=" + dlat + "&dropoff[longitude]=" + dlong + "&dropoff[nickname]=" + destinationURL + "&product_id=a1111c8c-c720-46c3-8534-2fcdd730040d";
 
         window.location.href = myURL;
-=======
+    }
+
     var lots_box = document.querySelectorAll("#lots > li");
     for(i = 0; i < lots_stuff.length; i++){
         var curr = lots_stuff[i];
         lots_box[i].innerHTML = curr['name'] + " - "  + curr['price, hourly'] + " - " + curr['address'] ;
         lots_box[i].style.display = "block";
->>>>>>> ab521f21e1c6bbabf40d2df03e8a8364935ff520
     }
 
 

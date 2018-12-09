@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-
-from flask import Flask, render_template, request, url_for, abort
-=======
 from flask import Flask, render_template, request, url_for, abort, redirect
 from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
->>>>>>> ab521f21e1c6bbabf40d2df03e8a8364935ff520
 import os, json
 from pygeocoder import Geocoder
 from lyft_rides.auth import ClientCredentialGrant
