@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, abort
 import os, json
-import geocoder
+from pygeocoder import Geocoder
 from lyft_rides.auth import ClientCredentialGrant
 from uber_rides.session import Session
 from uber_rides.client import UberRidesClient
@@ -15,6 +15,10 @@ os.environ['GOOGLE_API_KEY'] = secrets['google_api_key']
 uberServerKey = secrets['uber-server-key']
 uber_session = Session(server_token=uberServerKey)
 uber_client = UberRidesClient(uber_session)
+
+
+googleApiKey = secrets['google_api_key']
+geo = Geocoder(api_key=googleApiKey)
 
 #lyftServerKey = secrets['lyft-server-key']
 
@@ -38,12 +42,18 @@ def result():
         # Do some stuff here with the variables
         source = request.form.get('source')
         destination = request.form.get('destination')
-        slatlong = geocoder.google(source, method="reverse").latlng
-        dlatlong = geocoder.google(destination, method="reverse").latlng
-        slat = slatlong[0]
-        slong = slatlong[1]
-        dlat = dlatlong[0]
-        dlong = dlatlong[1]
+        # slatlong = geocoder.google(source, method="reverse").latlng
+        # dlatlong = geocoder.google(destination, method="reverse").latlng
+
+
+        slat,slong = geo.geocode(source).coordinates
+        dlat,dlong = geo.geocode(destination).coordinates
+
+
+        # slat = slatlong[0]
+        # slong = slatlong[1]
+        # dlat = dlatlong[0]
+        # dlong = dlatlong[1]
 
         ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
         ride_estimates_lyft = lyft_client.get_cost_estimates(slat, slong, dlat, dlong).json
