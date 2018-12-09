@@ -108,11 +108,11 @@
                         <h6 class="card-price text-center"><span class="period"></span></h6>
                         <hr>
                         <ul class="fa-ul" id = "lots">
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
                         </ul>
                         <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
                       </div>
@@ -197,7 +197,8 @@
     var lots_box = document.querySelectorAll("#lots > li");
     for(i = 0; i < lots_stuff.length; i++){
         var curr = lots_stuff[i];
-        lots_box[i].innerHTML = curr['name'] + " - " + "$" + curr['price, hourly'] + "- Addr:" + curr['address'] ;
+        lots_box[i].innerHTML = curr['name'] + " - "  + curr['price, hourly'] + " - " + curr['address'] ;
+        lots_box[i].style.display = "block";
     }
 
 
