@@ -107,7 +107,7 @@
                         <h5 class="card-title text-muted text-uppercase text-center">Parking Garage</h5>
                         <h6 class="card-price text-center"><span class="period"></span></h6>
                         <hr>
-                        <ul class="fa-ul">
+                        <ul class="fa-ul" id = "lots">
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
@@ -189,6 +189,16 @@
     }
 
 
+
+
+
+    var lots_stuff = {{ lots | tojson }};
+
+    var lots_box = document.querySelectorAll("#lots > li");
+    for(i = 0; i < lots_stuff.length; i++){
+        var curr = lots_stuff[i];
+        lots_box[i].innerHTML = curr['name'] + " - " + "$" + curr['price, hourly'] + "- Addr:" + curr['address'] ;
+    }
 
 
 
