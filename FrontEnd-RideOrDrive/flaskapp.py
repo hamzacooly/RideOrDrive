@@ -20,13 +20,14 @@ uber_client = UberRidesClient(uber_session)
 googleApiKey = secrets['google_api_key']
 geo = Geocoder(api_key=googleApiKey)
 
-#lyftServerKey = secrets['lyft-server-key']
 
 auth_flow = ClientCredentialGrant(
             'd-0DVSBkAukU',
             'I-yZZtV1WkY_903WKVqZEfMEls37VTCa',
             'rides.request',
             )
+
+
 lyft_session = auth_flow.get_session()
 lyft_client = LyftRidesClient(lyft_session)
 
@@ -42,18 +43,14 @@ def result():
         # Do some stuff here with the variables
         source = request.form.get('source')
         destination = request.form.get('destination')
-        # slatlong = geocoder.google(source, method="reverse").latlng
-        # dlatlong = geocoder.google(destination, method="reverse").latlng
+
 
 
         slat,slong = geo.geocode(source).coordinates
         dlat,dlong = geo.geocode(destination).coordinates
 
 
-        # slat = slatlong[0]
-        # slong = slatlong[1]
-        # dlat = dlatlong[0]
-        # dlong = dlatlong[1]
+
 
         ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
         ride_estimates_lyft = lyft_client.get_cost_estimates(slat, slong, dlat, dlong).json
