@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 
 from flask import Flask, render_template, request, url_for, abort
+=======
+from flask import Flask, render_template, request, url_for, abort, redirect
+from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
+from flask_pymongo import PyMongo
+from werkzeug.security import generate_password_hash, check_password_hash
+>>>>>>> ab521f21e1c6bbabf40d2df03e8a8364935ff520
 import os, json
 from pygeocoder import Geocoder
 from lyft_rides.auth import ClientCredentialGrant
@@ -11,8 +18,14 @@ from parking_scraper import ParkMeScraper
 import urllib
 
 app = Flask(__name__)
-secrets = json.loads(open('secrets.json', 'r').read())
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
 
+app.config['MONGO_URI'] = "mongodb+srv://swlabadmin:rubberduckymattress512@sw-lab-iyamn.mongodb.net/test?retryWrites=true"
+mongo = PyMongo(app)
+
+secrets = json.loads(open('secrets.json', 'r').read())
 os.environ['GOOGLE_API_KEY'] = secrets['google_api_key']
 
 uberServerKey = secrets['uber-server-key']
@@ -24,12 +37,6 @@ uber_client = UberRidesClient(uber_session)
 googleApiKey = secrets['google_api_key']
 geo = Geocoder(api_key=googleApiKey)
 
-
-
-
-
-
-
 auth_flow = ClientCredentialGrant(
             'd-0DVSBkAukU',
             'I-yZZtV1WkY_903WKVqZEfMEls37VTCa',
@@ -40,6 +47,29 @@ auth_flow = ClientCredentialGrant(
 lyft_session = auth_flow.get_session()
 lyft_client = LyftRidesClient(lyft_session)
 
+class User(UserMixin):
+
+    def __init__(self, username, password):
+        self.username = username
+        self.set_password(password)
+        self.history = []
+
+    def set_password(self, password):
+        self.pw_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.pw_hash, password)
+    
+    def add_history_item(self, item):
+        self.history.append(item)
+    
+    def get_history(self):
+        return self.history
+
+@login_manager.user_loader
+def load_user(id):
+    #TODO! Fix this to properly load the user
+    return User.get_id(id)
 
 @app.route('/')
 @app.route('/static/index.html')
@@ -47,10 +77,20 @@ lyft_client = LyftRidesClient(lyft_session)
 def index():
     return render_template('web/index.html')
 
-@app.route('/login.html')
-@app.route('/static/login.html')
+@app.route('/login.html', methods = ['POST', 'GET'])
+@app.route('/static/login.html', methods = ['POST', 'GET'])
 def login():
-    return render_template('web/login.html')
+    if request.method == "GET":
+        return render_template('web/login.html')
+    else:
+        if current_user.is_authenticated:
+            return redirect(url_for('index'))
+
+@app.route('/static/history.html')
+@login_required
+def history():
+    # Add in more stuff about getting the user's history!
+    return render_template('web/history.html')
 
 @app.route('/result', methods=['POST'])
 def result():

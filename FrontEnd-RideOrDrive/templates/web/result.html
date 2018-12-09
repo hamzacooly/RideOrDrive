@@ -108,11 +108,11 @@
                         <h6 class="card-price text-center"><span class="period"></span></h6>
                         <hr>
                         <ul class="fa-ul" id = "lots">
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
+                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
                         </ul>
                         <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
                       </div>
@@ -210,10 +210,18 @@ for(i = 0; i < lots_stuff.length; i++){
 
 
 
+<<<<<<< HEAD
 
         myURL= "https://m.uber.com/?client_id=n0W4YyBkA8BvBSt7UtKTHGvISpyR22ga&action=setPickup&pickup[latitude]="+slat+"&pickup[longitude]="+slong+"&pickup[nickname]="+sourceURL+"&dropoff[latitude]="+dlat+"&dropoff[longitude]="+dlong+"&dropoff[nickname]="+destinationURL+"&product_id=a1111c8c-c720-46c3-8534-2fcdd730040d";
 
         window.location.href = myURL;
+=======
+    var lots_box = document.querySelectorAll("#lots > li");
+    for(i = 0; i < lots_stuff.length; i++){
+        var curr = lots_stuff[i];
+        lots_box[i].innerHTML = curr['name'] + " - "  + curr['price, hourly'] + " - " + curr['address'] ;
+        lots_box[i].style.display = "block";
+>>>>>>> ab521f21e1c6bbabf40d2df03e8a8364935ff520
     }
 
 
