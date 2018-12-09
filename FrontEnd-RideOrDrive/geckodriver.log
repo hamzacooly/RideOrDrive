@@ -47,3 +47,38 @@ console.error: BroadcastService:
   Stack:
     remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
 
+1544387547381	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.IXHl1PORrH31"
+*** You are running in headless mode.
+1544387549866	Marionette	INFO	Listening on port 55805
+1544387549945	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1544388789787	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.yGeKHPokonDj"
+*** You are running in headless mode.
+1544388794415	Marionette	INFO	Listening on port 56044
+1544388794534	Marionette	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 11247, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 729
+1544389040235	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.OLGy2IcR8gO0"
+*** You are running in headless mode.
+1544389042788	Marionette	INFO	Listening on port 56258
+1544389042828	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1544397949490	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.cEFBx4YhYwMY"
+*** You are running in headless mode.
+1544397955240	Marionette	INFO	Listening on port 57789
+1544397955276	Marionette	WARN	TLS certificate errors will be ignored for this session

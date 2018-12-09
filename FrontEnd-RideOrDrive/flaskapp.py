@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request, url_for, abort
 import os, json
 from pygeocoder import Geocoder
@@ -7,7 +8,7 @@ from uber_rides.client import UberRidesClient
 from lyft_rides.session import Session as Session2
 from lyft_rides.client import LyftRidesClient
 from parking_scraper import ParkMeScraper
-
+import urllib
 
 app = Flask(__name__)
 secrets = json.loads(open('secrets.json', 'r').read())
@@ -17,6 +18,7 @@ os.environ['GOOGLE_API_KEY'] = secrets['google_api_key']
 uberServerKey = secrets['uber-server-key']
 uber_session = Session(server_token=uberServerKey)
 uber_client = UberRidesClient(uber_session)
+
 
 
 googleApiKey = secrets['google_api_key']
@@ -59,17 +61,22 @@ def result():
         destination = request.form.get('destination')
 
 
+        sourceURL = urllib.parse.quote(source)
+        destinationURL = urllib.parse.quote(destination)
+
+
 
         slat,slong = geo.geocode(source).coordinates
         dlat,dlong = geo.geocode(destination).coordinates
 
         lots = ParkMeScraper().getLots(dlat, dlong)[:5]
 
-
         ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
         ride_estimates_lyft = lyft_client.get_cost_estimates(slat, slong, dlat, dlong).json
 
-        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots)
+        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL)
+
+        # return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots)
     else:
         print("HOW DID I DO A GET??")
         abort(403)
