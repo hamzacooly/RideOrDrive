@@ -15,7 +15,7 @@ from parking_scraper import ParkMeScraper
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
-login.login_view = 'login'
+login_manager.login_view = 'login'
 
 app.config['MONGO_URI'] = "mongodb+srv://swlabadmin:rubberduckymattress512@sw-lab-iyamn.mongodb.net/test?retryWrites=true"
 mongo = PyMongo(app)
