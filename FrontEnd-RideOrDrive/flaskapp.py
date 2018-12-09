@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, url_for, abort
-from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin
+from flask import Flask, render_template, request, url_for, abort, redirect
+from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
+from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 import os, json
 from pygeocoder import Geocoder
@@ -14,6 +15,10 @@ from parking_scraper import ParkMeScraper
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
+login.login_view = 'login'
+
+app.config['MONGO_URI'] = "mongodb+srv://swlabadmin:rubberduckymattress512@sw-lab-iyamn.mongodb.net/test?retryWrites=true"
+mongo = PyMongo(app)
 
 secrets = json.loads(open('secrets.json', 'r').read())
 os.environ['GOOGLE_API_KEY'] = secrets['google_api_key']
@@ -25,12 +30,6 @@ uber_client = UberRidesClient(uber_session)
 
 googleApiKey = secrets['google_api_key']
 geo = Geocoder(api_key=googleApiKey)
-
-
-
-
-
-
 
 auth_flow = ClientCredentialGrant(
             'd-0DVSBkAukU',
@@ -61,6 +60,11 @@ class User(UserMixin):
     def get_history(self):
         return self.history
 
+@login.user_loader
+def load_user(id):
+    #TODO! Fix this to properly load the user
+    return User.get_id(id)
+
 @app.route('/')
 @app.route('/static/index.html')
 @app.route('/index.html')
@@ -73,10 +77,10 @@ def login():
     if request.method == "GET":
         return render_template('web/login.html')
     else:
-        #TODO! Replace this with actual stuff
-        return abort(403)
+        if current_user.is_authenticated:
+            return redirect(url_for('index'))
 
-@app.route('/history.html')
+@app.route('/static/history.html')
 @login_required
 def history():
     # Add in more stuff about getting the user's history!
