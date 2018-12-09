@@ -63,11 +63,13 @@
             </div>
             <form action = "/result" method="POST" class ="form-inline element-animate" id="search-form">
                 <label for="s" class="sr-only">Location</label>
-                <input name = "source" class="form-control form-control-block search-input" id="autocompleteSource" placeholder="Input Source">
-                <input name = "destination" class="form-control form-control-block search-input" id="autocompleteDestination" placeholder="Input Destination" >
+                <input id="src-field" name = "source" class="form-control form-control-block search-input" id="autocompleteSource" placeholder="Input Source">
+                <input id="dst-field" name = "destination" class="form-control form-control-block search-input" id="autocompleteDestination" placeholder="Input Destination" >
                 <input type="submit" value = "Search" class="btn btn-primary" id = "Search" >
                 <iframe width="900" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=10&center=30.2672%2C-97.7431&key=AIzaSyDHycBszJgn0XzNatu1TKn3ZX2XS-W3ec4" allowfullscreen></iframe>
                 </form>
+                <button onclick="fillLocationS()">Use Current Location</button>
+                <button onclick="fillLocationD()">Use Current Location</button>
   
             
 
@@ -97,7 +99,8 @@
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-  
+
+
       var placeSearch, autocomplete;
       var componentForm = {
         street_number: 'short_name',
@@ -160,6 +163,32 @@
           });
           
         }
+      }
+
+      function fillLocationS() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPositionSRC);
+        } else { 
+            console.log("Geolocation is not supported by this browser.");
+        }
+      }
+      function fillLocationD() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPositionDST);
+        } else { 
+            console.log("Geolocation is not supported by this browser.");
+        }
+      }
+
+      function showPositionSRC(position){
+        var x = document.getElementById("src-field");
+        x.value = position.coords.latitude + ", " + position.coords.longitude;
+        console.log(position.coords.latitude + ", " + position.coords.longitude);
+      }
+      function showPositionDST(position){
+        var x = document.getElementById("dst-field");
+        x.value = position.coords.latitude + ", " + position.coords.longitude;
+        console.log(position.coords.latitude + ", " + position.coords.longitude);
       }
     </script>
 
