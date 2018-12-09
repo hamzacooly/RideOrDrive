@@ -33,6 +33,8 @@ lyft_client = LyftRidesClient(lyft_session)
 
 
 @app.route('/')
+@app.route('/static/index.html')
+@app.route('/index.html')
 def index():
     return render_template('web/index.html')
 
