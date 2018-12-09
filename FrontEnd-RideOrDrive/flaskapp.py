@@ -60,7 +60,7 @@ class User(UserMixin):
     def get_history(self):
         return self.history
 
-@login.user_loader
+@login_manager.user_loader
 def load_user(id):
     #TODO! Fix this to properly load the user
     return User.get_id(id)
