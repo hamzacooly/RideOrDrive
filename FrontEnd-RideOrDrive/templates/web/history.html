@@ -74,7 +74,7 @@
             </tr>
           </thead>
           <tbody>
-            {% for item in history %}
+            {% for item in history|reverse %}
               <tr style="cursor:pointer">
                 <th scope="row">{{ loop.index }}</th>
                 <td>{{item['time']}}</td>
