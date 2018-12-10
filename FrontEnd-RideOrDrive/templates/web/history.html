@@ -98,12 +98,10 @@
 
 <script src="{{ url_for('static', filename='js/main.js')}}"></script>
 <script>
-  rows = document.querySelectorAll("table tbody tr")
-  console.log(rows)
+  var rows = document.querySelectorAll("table tbody tr");
   for (var i = 0; i < rows.length; i++){
-    var me = rows[i];
-    me.onclick = function(event){
-      window.location = "{{url_for('result')}}" + "?time=" + me.getElementsByTagName('td')[0].innerHTML;
+    rows[i].onclick = function(event){
+      window.location = "{{url_for('result')}}" + "?time=" + this.getElementsByTagName('td')[0].innerHTML;
     }
   }
 </script>
