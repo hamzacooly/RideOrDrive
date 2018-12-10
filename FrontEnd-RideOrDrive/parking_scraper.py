@@ -13,7 +13,7 @@ class ParkMeScraper:
         os.environ['PATH'] = os.path.abspath(os.getcwd()) + ":" + os.environ['PATH']
         self.pagetext = 'https://www.parkme.com/'
         options = Options()
-        options.set_headless(True)=
+        options.set_headless(True)
         self.driver = webdriver.Firefox(options=options)
 
 
