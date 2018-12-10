@@ -1,7 +1,7 @@
 from flask_login import UserMixin, LoginManager
 from werkzeug.security import check_password_hash
-from flaskapp import app
-from db import appDB
+from .flaskapp import app
+from .db import appDB
 
 login_manager = LoginManager()
 login_manager.init_app(app)

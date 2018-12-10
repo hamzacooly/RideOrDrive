@@ -6,8 +6,8 @@ from uber_rides.session import Session
 from uber_rides.client import UberRidesClient
 from lyft_rides.session import Session as Session2
 from lyft_rides.client import LyftRidesClient
-from parking_scraper import ParkMeScraper
-from weather_scraper import WeatherScraper
+from .parking_scraper import ParkMeScraper
+from .weather_scraper import WeatherScraper
 
 app = Flask(__name__)
 app.secret_key = 'SUPERSECRETSECRETKEY'
@@ -34,7 +34,7 @@ auth_flow = ClientCredentialGrant(
 lyft_session = auth_flow.get_session()
 lyft_client = LyftRidesClient(lyft_session)
 
-from views import *
+from .views import *
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port="80")
