@@ -1,1 +1,1 @@
-web: gunicorn --chdir FrontEnd-RideOrDrive flaskapp:app
+web: gunicorn FrontEnd-RideOrDrive.flaskapp:app
