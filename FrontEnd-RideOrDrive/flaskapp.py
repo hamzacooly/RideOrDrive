@@ -114,8 +114,6 @@ def result():
 
         lots = ParkMeScraper().getLots(dlat, dlong)[:5]
 
-        print(lots)
-
         try:
             ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
         except:
