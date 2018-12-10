@@ -64,7 +64,7 @@
             </div>
           </div>
          </section>
-         <table class="table table-dark">
+         <table class="table table-dark table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -98,5 +98,13 @@
 <script src="{{ url_for('static', filename='js/jquery.stellar.min.js')}}"></script>
 
 <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+<script>
+  rows = document.querySelectorAll("table tbody tr")
+  for (row in rows){
+    row.onclick = function(event){
+      window.location = "{{url_for('results')}}" + "?time=" + row.getElementsByTagName('td')[0];
+    }
+  }
+</script>
 
 </html>
