@@ -123,9 +123,17 @@ def result():
         destinationURL = urllib.parse.quote(destination)
 
 
+        try:
+            slat,slong = geo.geocode(source).coordinates
+        except:
+            return index()
 
-        slat,slong = geo.geocode(source).coordinates
-        dlat,dlong = geo.geocode(destination).coordinates
+        try:
+            dlat,dlong = geo.geocode(destination).coordinates
+        except:
+            return index()
+
+
         dregion = geo.reverse_geocode(dlat,dlong).county
 
         lots = ParkMeScraper().getLots(dlat, dlong)[:5]
