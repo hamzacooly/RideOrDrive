@@ -9,6 +9,7 @@ from uber_rides.client import UberRidesClient
 from lyft_rides.session import Session as Session2
 from lyft_rides.client import LyftRidesClient
 from parking_scraper import ParkMeScraper
+from weather_scraper import WeatherScraper
 import urllib
 from auth import User
 
@@ -99,6 +100,9 @@ def result():
         dlat,dlong = geo.geocode(destination).coordinates
 
         lots = ParkMeScraper().getLots(dlat, dlong)[:5]
+
+        weather = WeatherScraper().get_weather(dlat,dlong)
+        print(weather)
 
         try:
             ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
