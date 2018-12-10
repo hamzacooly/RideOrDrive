@@ -54,14 +54,14 @@ class User(UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.pw_hash, password)
-    
+
     def add_history_item(self, item):
         self.history.append(item)
         appDB.users[self.username]['history'].insert(item)
-    
+
     def get_history(self):
         return self.history
-    
+
     @staticmethod
     def query_user(id):
         user = appDB.users.find_one({'_id': id})
@@ -156,7 +156,7 @@ def result():
 
 
 
-        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL, lotsMarkers=lotsMarkers)
+        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, weather=weather, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL, lotsMarkers=lotsMarkers)
 
         # return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots)
     else:
