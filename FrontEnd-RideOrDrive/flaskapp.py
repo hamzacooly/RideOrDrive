@@ -82,6 +82,8 @@ def index():
 @app.route('/static/login.html', methods = ['POST', 'GET'])
 def login():
     if request.method == "GET":
+        if current_user.is_authenticated:
+            return redirect(url_for('index'))
         return render_template('web/login.html')
     else:
         if current_user.is_authenticated:
@@ -96,7 +98,8 @@ def login():
                 login_user(myuser)
                 return redirect(url_for('index'))
             else:
-                flash("Incorrect password, please try again")
+                flash("Incorrect username/password, please try again")
+                return render_template('web/login.html')
         else:
             pw_hash = generate_password_hash(pw)
             myuser = User(username, pw_hash, [])
@@ -110,6 +113,12 @@ def login():
 def history():
     # Add in more stuff about getting the user's history!
     return render_template('web/history.html')
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
 
 @app.route('/result', methods=['POST'])
 def result():
