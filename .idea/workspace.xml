@@ -7,7 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa93a5b2-dcc3-4c5e-a1d9-33fde5926a1f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/FrontEnd-RideOrDrive/flaskapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd-RideOrDrive/flaskapp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/result.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +19,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/RideOrDrive$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1544132504590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/RideOrDrive$flaskapp.coverage" NAME="flaskapp Coverage Results" MODIFIED="1544462535288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FrontEnd-RideOrDrive" />
+    <SUITE FILE_PATH="coverage/RideOrDrive$flaskapp.coverage" NAME="flaskapp Coverage Results" MODIFIED="1544463982925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FrontEnd-RideOrDrive" />
     <SUITE FILE_PATH="coverage/RideOrDrive$Unittests_for_Tests_Test_test.coverage" NAME="Unittests for Tests.Test.test Coverage Results" MODIFIED="1544385884228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FrontEnd-RideOrDrive/tests" />
     <SUITE FILE_PATH="coverage/RideOrDrive$manage.coverage" NAME="manage Coverage Results" MODIFIED="1544132847812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -88,25 +89,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="4" />
+          <entry key="html" value="6" />
           <entry key="json" value="10" />
           <entry key="jsp" value="1" />
           <entry key="log" value="1" />
-          <entry key="py" value="62" />
+          <entry key="py" value="63" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="4" />
+          <entry key="HTML" value="6" />
           <entry key="JSON" value="10" />
           <entry key="JSP" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="62" />
+          <entry key="Python" value="63" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="922" />
+          <entry key="html" value="979" />
           <entry key="json" value="6" />
           <entry key="py" value="939" />
           <entry key="txt" value="74" />
@@ -114,7 +115,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="922" />
+          <entry key="HTML" value="979" />
           <entry key="JSON" value="6" />
           <entry key="PLAIN_TEXT" value="74" />
           <entry key="Python" value="939" />
@@ -124,15 +125,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/flaskapp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="171" column="34" lean-forward="true" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#82#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1972">
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="77" column="50" lean-forward="true" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/signup.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1305" />
           </provider>
         </entry>
       </file>
@@ -148,11 +162,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="346" column="38" selection-start-line="346" selection-start-column="38" selection-end-line="346" selection-end-column="38" />
+            <state relative-caret-position="326">
+              <caret line="307" column="5" lean-forward="true" selection-start-line="307" selection-start-column="5" selection-end-line="307" selection-end-column="5" />
               <folding>
                 <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -187,9 +201,6 @@
                 <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#7;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -254,8 +265,8 @@
         <option value="$PROJECT_DIR$/parking_scraper.py" />
         <option value="$PROJECT_DIR$/FrontEnd-RideOrDrive/parking_scraper.py" />
         <option value="$PROJECT_DIR$/FrontEnd-RideOrDrive/weather_scraper.py" />
-        <option value="$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/result.html" />
         <option value="$PROJECT_DIR$/FrontEnd-RideOrDrive/flaskapp.py" />
+        <option value="$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/result.html" />
       </list>
     </option>
   </component>
@@ -526,7 +537,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="712" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27405012" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -538,7 +548,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4987874" visible="true" weight="0.31451613" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4987874" visible="true" weight="0.13387097" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3611557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -579,9 +589,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="&quot;Fixed the Geocoding to work with all addresses&quot;" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/index.jsp" />
-    <entry file="file://$PROJECT_DIR$/web/js/main.js" />
-    <entry file="file://$PROJECT_DIR$/web/images/big_image_1.jpg" />
     <entry file="file://$PROJECT_DIR$/web/images/big_image_2.jpg" />
     <entry file="file://$PROJECT_DIR$/web/css/animate.css" />
     <entry file="file://$PROJECT_DIR$/web/destination.html" />
@@ -778,10 +785,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/auth.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="77" column="50" lean-forward="true" selection-start-line="77" selection-start-column="50" selection-end-line="77" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1305" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/flaskapp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1972">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/templates/web/result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="346" column="38" selection-start-line="346" selection-start-column="38" selection-end-line="346" selection-end-column="38" />
+        <state relative-caret-position="326">
+          <caret line="307" column="5" lean-forward="true" selection-start-line="307" selection-start-column="5" selection-end-line="307" selection-end-column="5" />
           <folding>
             <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -816,19 +845,6 @@
             <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#7;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd-RideOrDrive/flaskapp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="171" column="34" lean-forward="true" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
