@@ -75,6 +75,11 @@
                           <input type="password" class="form-input" name="password" size = "78" id="password" style = "margin-top: .5em" placeholder="Password"/>
                           <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                       </div>
+                      {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                          <div class="form-group">{{messages[0]}}</div>
+                        {% endif %}
+                      {% endwith %}
                 
                       <button class="btn btn-lg btn-primary btn-block text-uppercase" style = " margin-top : em" type="submit">Sign in</button>
                      </form>
