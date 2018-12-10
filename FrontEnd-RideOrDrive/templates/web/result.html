@@ -89,6 +89,7 @@
                           <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>First Option</li>
                           <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Second Option</li>
                           <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Third Option </li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Third Option </li>
                         </ul>
                       </div>
                     </div>
@@ -189,9 +190,21 @@
     var source = "{{ source }}";
     var destination = "{{ destination }}";
     var uber_stuff = {{ uber | tojson }};
+    var weather_details = {{ weather | tojson }};
+
+    var weather_card = document.querySelectorAll("#weather > li");
+    weather_card[0].innerHTML = "Overview: " + weather_details['desc'];
+    weather_card[0].style.display = 'block';
+    weather_card[1].innerHTML = "Temp: " + weather_details['temp'];
+    weather_card[2].innerHTML = "Vis.: " + weather_details['visibility'];
+    weather_card[3].innerHTML = "Humidity: " + weather_details['humidity'];
+    weather_card[1].style.display = 'block';
+    weather_card[2].style.display = 'block';
+    weather_card[3].style.display = 'block';
+
     var lotsMarkers = {{lotsMarkers | tojson}};
 
-    var uber_box = document.querySelectorAll("#uber > li")
+    var uber_box = document.querySelectorAll("#uber > li");
 if(Object.keys(uber_stuff).length === 0 && uber_stuff.constructor === Object){
     uber_box[0].innerHTML = "Distance too far (>100mi), use Uber client for accurate estimate.";
     uber_box[0].style.display = 'block';
