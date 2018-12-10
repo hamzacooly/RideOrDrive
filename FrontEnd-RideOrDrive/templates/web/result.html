@@ -223,10 +223,15 @@
 
 
     var lots_box = document.querySelectorAll("#lots > li");
+    if(lots_stuff.length == 0) {
+        lots_box[0].innerHTML = "No Available Parking Lots Online Near Destination";
+        lots_box[0].style.display = "block";
+    } else{
     for(i = 0; i < lots_stuff.length; i++){
         var curr = lots_stuff[i];
         lots_box[i].innerHTML = curr['name'] + " - "  + curr['price, hourly'] + " - " + curr['address'] ;
         lots_box[i].style.display = "block";
+    }
     }
 
 

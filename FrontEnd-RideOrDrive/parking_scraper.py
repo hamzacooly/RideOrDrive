@@ -31,7 +31,6 @@ class ParkMeScraper:
             entry['occupancy'] = first.find('div',attrs={'class':'occupancy-bar'}).text.strip()
             lots.append(entry)
 
-        assert len(lots) != 0
         return lots
 '''
 # USE EXAMPLE
