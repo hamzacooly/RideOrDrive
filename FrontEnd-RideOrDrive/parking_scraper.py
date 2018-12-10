@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 import time
+import os
 
 
 class ParkMeScraper:
@@ -11,7 +12,7 @@ class ParkMeScraper:
         self.pagetext = 'https://www.parkme.com/'
         options = Options()
         options.set_headless(True)
-        self.driver = webdriver.Firefox(options=options)
+        self.driver = webdriver.Firefox(executable_path = os.path.join(os.path.abspath(__file__), 'geckodriver'), options=options)
 
 
     def getLots(self, lat, lon):
