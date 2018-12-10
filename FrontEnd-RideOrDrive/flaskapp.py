@@ -126,6 +126,7 @@ def result():
 
         slat,slong = geo.geocode(source).coordinates
         dlat,dlong = geo.geocode(destination).coordinates
+        dregion = geo.reverse_geocode(dlat,dlong).county
 
         lots = ParkMeScraper().getLots(dlat, dlong)[:5]
 
@@ -148,7 +149,7 @@ def result():
         for lot in lots:
             entry={}
             entry['name']= lot['name']
-            mlat,mlong = geo.geocode(lot['address']).coordinates
+            mlat,mlong = geo.geocode(lot['address']+" "+dregion).coordinates
             entry['mlat'] = mlat
             entry['mlong'] = mlong
             lotsMarkers.append(entry)
