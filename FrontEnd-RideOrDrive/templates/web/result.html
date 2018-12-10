@@ -177,21 +177,27 @@
     var uber_stuff = {{ uber | tojson }};
 
     var uber_box = document.querySelectorAll("#uber > li")
+if(Object.keys(uber_stuff).length === 0 && uber_stuff.constructor === Object){
+    console.log('fook');
+}else {
     for(i = 0; i < uber_stuff['prices'].length; i++){
       uber_box[i].innerHTML = uber_stuff['prices'][i]['display_name'] + " - " + uber_stuff['prices'][i]['estimate'];
     }
-
+}
 
     var lyft_stuff = {{ lyft | tojson }};
+    
+if(Object.keys(lyft_stuff).length === 0 && lyft_stuff.constructor === Object){
+    console.log('fook2');
+          }else{
 
     var lyft_box = document.querySelectorAll("#lyft > li");
     for(i = 0; i < lyft_stuff['cost_estimates'].length; i++){
         var curr = lyft_stuff['cost_estimates'][i];
       lyft_box[i].innerHTML = curr['display_name'] + " - " + "$" + curr['estimated_cost_cents_min']/100 + "-" + curr['estimated_cost_cents_max']/100;
     }
-
+}
     var lots_stuff = {{ lots | tojson }};
-
 
 
 

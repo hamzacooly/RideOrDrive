@@ -55,13 +55,13 @@ class User(UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.pw_hash, password)
-    
+
     def add_history_item(self, item):
         self.history.append(item)
-    
+
     def get_history(self):
         return self.history
-    
+
     @staticmethod
     def query_user(user):
          return appDB.users.find_one({'username': user})
@@ -84,10 +84,10 @@ def login():
     else:
         if current_user.is_authenticated:
             return redirect(url_for('index'))
-        
+
         username = request.form['username']
         pw = request.form['password']
-        
+
 
 @app.route('/static/history.html')
 @login_required
@@ -114,8 +114,17 @@ def result():
 
         lots = ParkMeScraper().getLots(dlat, dlong)[:5]
 
-        ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
-        ride_estimates_lyft = lyft_client.get_cost_estimates(slat, slong, dlat, dlong).json
+        print(lots)
+
+        try:
+            ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
+        except:
+            ride_estimates_uber = {}
+
+        try:
+            ride_estimates_lyft = lyft_client.get_cost_estimates(slat, slong, dlat, dlong).json
+        except:
+            ride_estimates_lyft = {}
 
         return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL)
 
