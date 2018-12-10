@@ -160,15 +160,12 @@
                         <h6 class="card-price text-center"><span class="period"></span></h6>
                         <hr>
                         <ul class="fa-ul" id = "lots">
-                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
-                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
-                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
-                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
-                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
-                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
-                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
-                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
-                            <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
+                            <li style="display:none" onclick="Click1()"><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
+                            <li style="display:none" onclick="Click2()"><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
+                            <li style="display:none" onclick="Click3()"><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
+                            <li style="display:none" onclick="Click4()"><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
+                            <li style="display:none" onclick="Click5()"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
+                            
                         </ul>
                        <!-- <a class="btn btn-block btn-primary text-white text-uppercase">Button</a> -->
                       </div>
@@ -293,6 +290,26 @@ if(Object.keys(lyft_stuff).length === 0 && lyft_stuff.constructor === Object){
 
 
 
+    function Click1(){
+      var url =  "https://www.google.com/maps/dir/?api=1&origin="+source+"&destination="+lotsMarkers[0].address+"&travelmode=traffic";
+      window.open(url,'_blank');
+    }
+    function Click2(){
+      var url =  "https://www.google.com/maps/dir/?api=1&origin="+source+"&destination="+lotsMarkers[0].address+"&travelmode=traffic";
+      window.open(url,'_blank');
+    }
+    function Click3(){
+      var url =  "https://www.google.com/maps/dir/?api=1&origin="+source+"&destination="+lotsMarkers[0].address+"&travelmode=traffic";
+      window.open(url,'_blank');
+    }
+    function Click4(){
+      var url =  "https://www.google.com/maps/dir/?api=1&origin="+source+"&destination="+lotsMarkers[0].address+"&travelmode=traffic";
+      window.open(url,'_blank');
+    }
+    function Click5(){
+      var url =  "https://www.google.com/maps/dir/?api=1&origin="+source+"&destination="+lotsMarkers[0].address+"&travelmode=traffic";
+      window.open(url,'_blank');
+    }
 
 
 
