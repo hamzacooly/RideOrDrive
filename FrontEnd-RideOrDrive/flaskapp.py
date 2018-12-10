@@ -167,6 +167,7 @@ def result():
             entry={}
             entry['name']= lot['name']
             mlat,mlong = geo.geocode(lot['address']+" "+dregion).coordinates
+            entry['address']= lot['address']+ " "+dregion
             entry['mlat'] = mlat
             entry['mlong'] = mlong
             lotsMarkers.append(entry)
