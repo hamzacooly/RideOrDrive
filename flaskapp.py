@@ -10,7 +10,6 @@ from uber_rides.client import UberRidesClient
 from lyft_rides.session import Session as Session2
 from lyft_rides.client import LyftRidesClient
 from parking_scraper import ParkMeScraper
-import urllib
 
 app = Flask(__name__)
 app.secret_key = 'SUPERSECRETSECRETKEY'
@@ -18,9 +17,9 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
-app.config['MONGO_URI'] = "mongodb+srv://swlabadmin:rubberduckymattress512@sw-lab-iyamn.mongodb.net/RideDB?retryWrites=true"
+app.config['MONGO_URI'] = "mongodb+srv://swlabadmin:rubberduckymattress512@sw-lab-iyamn.mongodb.net/test?retryWrites=true"
 mongo = PyMongo(app)
-appDB = mongo.db
+db = mongo['RideDB']
 
 secrets = json.loads(open('secrets.json', 'r').read())
 os.environ['GOOGLE_API_KEY'] = secrets['google_api_key']
@@ -28,8 +27,6 @@ os.environ['GOOGLE_API_KEY'] = secrets['google_api_key']
 uberServerKey = secrets['uber-server-key']
 uber_session = Session(server_token=uberServerKey)
 uber_client = UberRidesClient(uber_session)
-
-
 
 googleApiKey = secrets['google_api_key']
 geo = Geocoder(api_key=googleApiKey)
@@ -62,13 +59,13 @@ class User(UserMixin):
     def get_history(self):
         return self.history
     
-    @staticmethod
-    def query_user(user):
-         return appDB.users.find_one({'username': user})
+    def query_user(cls, user)
+        
 
 @login_manager.user_loader
 def load_user(id):
-    return User.query_user(id)
+    #TODO! Fix this to properly load the user
+    return User.get_id(id)
 
 @app.route('/')
 @app.route('/static/index.html')
@@ -103,12 +100,6 @@ def result():
         source = request.form.get('source')
         destination = request.form.get('destination')
 
-
-        sourceURL = urllib.parse.quote(source)
-        destinationURL = urllib.parse.quote(destination)
-
-
-
         slat,slong = geo.geocode(source).coordinates
         dlat,dlong = geo.geocode(destination).coordinates
 
@@ -117,9 +108,7 @@ def result():
         ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
         ride_estimates_lyft = lyft_client.get_cost_estimates(slat, slong, dlat, dlong).json
 
-        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL)
-
-        # return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots)
+        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots)
     else:
         print("HOW DID I DO A GET??")
         abort(403)
