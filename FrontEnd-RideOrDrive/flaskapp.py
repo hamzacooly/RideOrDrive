@@ -45,20 +45,14 @@ lyft_client = LyftRidesClient(lyft_session)
 class User(UserMixin):
 
     def __init__(self, username, password, history):
-        self.username = username
-        self.set_password(password)
+        self.id = username
+        self.pw_hash = password
         self.history = history
-
-    def set_password(self, password):
-        self.pw_hash = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.pw_hash, password)
-
+    
     def add_history_item(self, item):
         self.history.append(item)
-        appDB.users[self.username]['history'].insert(item)
-
+        appDB.users[self.id]['history'].insert_one(item)
+    
     def get_history(self):
         return self.history
 
@@ -66,17 +60,20 @@ class User(UserMixin):
     def query_user(id):
         user = appDB.users.find_one({'_id': id})
         if user:
-            return User(user._id, user.password, user.history)
+            return User(user['_id'], user['password'], user['history'])
         else:
             return None
+
+def check_password(the_hash, password):
+    return check_password_hash(the_hash, password)
 
 @login_manager.user_loader
 def load_user(id):
     return User.query_user(id)
 
-@app.route('/')
 @app.route('/static/index.html')
 @app.route('/index.html')
+@app.route('/')
 def index():
     return render_template('web/index.html')
 
@@ -93,17 +90,19 @@ def login():
         pw = request.form['password']
         user = appDB.users.find_one({'_id': username})
         if user:
-            myuser = User(user._id, user.password, user.history)
-            if myuser.check_password(pw):
+            myuser = User.query_user(user['_id'])
+            if check_password(myuser.pw_hash, pw):
                 login_user(myuser)
-                redirect(url_for(index))
+                return redirect(url_for('index'))
             else:
                 flash("Incorrect password, please try again")
         else:
-            myuser = User(username, pw, [])
-            appDB.users.insert({"_id": myuser.username, \
+            pw_hash = generate_password_hash(pw)
+            myuser = User(username, pw_hash, [])
+            appDB.users.insert_one({"_id": myuser.id, \
                                 "password": myuser.pw_hash, \
                                 "history": []})
+            return redirect(url_for('index'))
 
 @app.route('/static/history.html')
 @login_required
@@ -161,9 +160,6 @@ def result():
             entry['mlat'] = mlat
             entry['mlong'] = mlong
             lotsMarkers.append(entry)
-
-
-
 
         return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, weather=weather, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL, lotsMarkers=lotsMarkers)
 
