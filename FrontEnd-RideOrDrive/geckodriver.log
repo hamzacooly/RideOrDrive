@@ -347,6 +347,7 @@ console.error: BroadcastService:
   Stack:
     remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
 
+<<<<<<< Updated upstream
 1544427970962	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/zh/gddtd2t56tzbcz0rpzyzp9b80000gn/T/rust_mozprofile.il8EHrstRvJp"
 *** You are running in headless mode.
 1544427971538	Marionette	INFO	Enabled via --marionette
@@ -419,5 +420,182 @@ See /usr/include/servers/bootstrap_defs.h for the error codes.
 1544429003082	Marionette	WARN	TLS certificate errors will be ignored for this session
 2018-12-10 02:03:23.644 plugin-container[10965:265799] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9c37, name = 'com.apple.tsm.portname'
 See /usr/include/servers/bootstrap_defs.h for the error codes.
+=======
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1544416949877	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.iHGp8ujiQYJF"
+*** You are running in headless mode.
+1544416954460	Marionette	INFO	Listening on port 49373
+1544416954525	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1544417142300	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.b74RWouaM9Hq"
+*** You are running in headless mode.
+1544417145334	Marionette	INFO	Listening on port 49528
+1544417145431	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544417194287	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.fa7o9LUMMGDQ"
+*** You are running in headless mode.
+1544417199081	Marionette	INFO	Listening on port 49671
+1544417199200	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1544419476745	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.uvaVyuV5ZEns"
+*** You are running in headless mode.
+1544419481998	Marionette	INFO	Listening on port 50447
+1544419482020	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544419803492	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.BReBaRBcxVgG"
+*** You are running in headless mode.
+1544419808226	Marionette	INFO	Listening on port 50632
+1544419808335	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544419865656	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.aOm9w854dQoK"
+*** You are running in headless mode.
+1544419868563	Marionette	INFO	Listening on port 50788
+1544419868661	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1544420149613	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.KJEartvKfdZt"
+*** You are running in headless mode.
+1544420153170	Marionette	INFO	Listening on port 50933
+1544420153234	Marionette	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1544420189600	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.Q0MZ1AHvwHph"
+*** You are running in headless mode.
+1544420194129	Marionette	INFO	Listening on port 51009
+1544420194230	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544420196901	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.nLvNbiG29DTN"
+*** You are running in headless mode.
+1544420200180	Marionette	INFO	Listening on port 51086
+1544420200210	Marionette	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 14751, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 729
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1544420284846	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.N5nq6FpFDaw4"
+*** You are running in headless mode.
+1544420287133	Marionette	INFO	Listening on port 51171
+1544420287240	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544420289028	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.SUSEQyt3vR63"
+*** You are running in headless mode.
+1544420292497	Marionette	INFO	Listening on port 51220
+1544420292558	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 14800, Chrome_ChildThread] WARNING: pipe error: Broken pipe: file /builds/worker/workspace/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 729
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1544421055549	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.JXHho8r50ELV"
+*** You are running in headless mode.
+1544421075535	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.znI7SMc5fsom"
+*** You are running in headless mode.
+1544421077869	Marionette	INFO	Listening on port 51433
+1544421077909	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544421079750	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.nm4sphV71Cxk"
+*** You are running in headless mode.
+1544421083387	Marionette	INFO	Listening on port 51482
+1544421083470	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+1544427902768	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.lJfiwHXPNZNd"
+*** You are running in headless mode.
+1544427905469	Marionette	INFO	Listening on port 53657
+1544427905571	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544432978828	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.dsLsHli2Fcua"
+*** You are running in headless mode.
+1544432981152	Marionette	INFO	Listening on port 54549
+1544432981201	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544432983000	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/9p/l8mzvp9d7rjfq5c9mcqqlmqh0000gn/T/rust_mozprofile.oQVaGqg8Iqig"
+*** You are running in headless mode.
+1544432986604	Marionette	INFO	Listening on port 54597
+1544432986645	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+>>>>>>> Stashed changes
 [GFX1-]: Receive IPC close with reason=AbnormalShutdown
 [GFX1-]: Receive IPC close with reason=AbnormalShutdown
