@@ -12,6 +12,7 @@ from lyft_rides.client import LyftRidesClient
 from parking_scraper import ParkMeScraper
 from weather_scraper import WeatherScraper
 import urllib
+import time
 
 app = Flask(__name__)
 app.secret_key = 'SUPERSECRETSECRETKEY'
@@ -52,7 +53,7 @@ class User(UserMixin):
 
     def add_history_item(self, item):
         self.history.append(item)
-        appDB.users[self.id]['history'].insert_one(item)
+        appDB.users.update({'_id':self.id}, {'$push':{'history':item}})
 
     def get_history(self):
         return self.history
@@ -149,7 +150,6 @@ def result():
 
 
         weather = WeatherScraper().get_weather(dlat,dlong)
-        print(weather)
 
         try:
             ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
@@ -170,6 +170,21 @@ def result():
             entry['mlat'] = mlat
             entry['mlong'] = mlong
             lotsMarkers.append(entry)
+
+        if current_user.is_authenticated:
+            history_item = {
+                'time':time.ctime(),
+                'source':source,
+                'destination':destination,
+                'src_latlng':(slat, slong),
+                'dst_latlng':(dlat, dlong),
+                'uber':ride_estimates_uber,
+                'lyft':ride_estimates_lyft,
+                'parking':lots,
+                'weather':weather
+            }
+            current_user.add_history_item(history_item)
+
 
         return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, weather=weather, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL, lotsMarkers=lotsMarkers)
 
