@@ -121,7 +121,7 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/result', methods=['POST'])
+@app.route('/result', methods=['POST', 'GET'])
 def result():
     if(request.method == 'POST'):
         # Do some stuff here with the variables
@@ -190,8 +190,41 @@ def result():
 
         # return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots)
     else:
-        print("HOW DID I DO A GET??")
-        abort(403)
+        if not current_user.is_authenticated:
+            return redirect(url_for("index"))
+        mytime = request.args.get("time")
+        for item in current_user.history:
+            if item['time'] == mytime:
+                myitem = item
+
+        sourceURL = urllib.parse.quote(myitem['source'])
+        destinationURL = urllib.parse.quote(myitem['destination'])
+        lotsMarkers = []
+        slat = myitem['src_latlng'][0]
+        slong = myitem['src_latlng'][1]
+        dlat = myitem['dst_latlng'][0]
+        dlong = myitem['dst_latlng'][1]
+        dregion = geo.reverse_geocode(dlat,dlong).county
+        for lot in myitem['parking']:
+            entry={}
+            entry['name']= lot['name']
+            mlat,mlong = geo.geocode(lot['address']+" "+dregion).coordinates
+            entry['mlat'] = mlat
+            entry['mlong'] = mlong
+            lotsMarkers.append(entry)
+        return render_template('web/result.html', source=myitem['source'], \
+                                                destination=myitem['destination'], \
+                                                uber=myitem['uber'], \
+                                                lyft=myitem['lyft'], \
+                                                lots=myitem['parking'], \
+                                                weather=myitem['weather'], \
+                                                slong=slong,\
+                                                slat=slat,\
+                                                dlong=dlong, \
+                                                dlat=dlat, \
+                                                destinationURL=destinationURL, \
+                                                sourceURL=sourceURL, \
+                                                lotsMarkers=lotsMarkers)
 
 if __name__ == '__main__':
     app.run(debug=True)
