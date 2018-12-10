@@ -1,8 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.webdriver.chrome.options import Options
 import time
 import os
 
@@ -10,11 +9,10 @@ import os
 class ParkMeScraper:
 
     def __init__(self):
-        os.environ['PATH'] = os.path.abspath(os.getcwd()) + ":" + os.environ['PATH']
         self.pagetext = 'https://www.parkme.com/'
         options = Options()
         options.set_headless(True)
-        self.driver = webdriver.Firefox(options=options)
+        self.driver = webdriver.Chrome(options=options)
 
 
     def getLots(self, lat, lon):
