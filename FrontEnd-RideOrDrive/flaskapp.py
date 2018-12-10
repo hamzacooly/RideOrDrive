@@ -113,7 +113,7 @@ def login():
 @login_required
 def history():
     # Add in more stuff about getting the user's history!
-    return render_template('web/history.html')
+    return render_template('web/history.html', history = current_user.history)
 
 @app.route('/logout')
 @login_required
