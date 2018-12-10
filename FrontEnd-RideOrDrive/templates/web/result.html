@@ -88,12 +88,12 @@
                         <h6 class="card-price text-center"><span class="period"></span></h6>
                         <hr>
                         <ul class="fa-ul" id="uber">
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Sixth Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Sixth Option - cost</li>
                         </ul>
                         <a class="btn btn-block btn-primary text-white text-uppercase" onclick="requestUber()">Request Uber</a>
                       </div>
@@ -108,12 +108,12 @@
                       <h6 class="card-price text-center"><span class="period"></span></h6>
                       <hr>
                       <ul class="fa-ul" id="lyft">
-                          <li><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
-                          <li><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
-                          <li><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
-                          <li><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
-                          <li><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
-                          <li><span class="fa-li"><i class="fas fa-check"></i></span>Sixth Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Sixth Option - cost</li>
                       </ul>
                       <a class="btn btn-block btn-primary text-white text-uppercase" onclick="requestLyft()">Request Lyft</a>
                     </div>
@@ -178,10 +178,12 @@
 
     var uber_box = document.querySelectorAll("#uber > li")
 if(Object.keys(uber_stuff).length === 0 && uber_stuff.constructor === Object){
-    console.log('fook');
+    uber_box[0].innerHTML = "Distance too far (>100mi), use Uber client for accurate estimate.";
+    uber_box[0].style.display = 'block';
 }else {
     for(i = 0; i < uber_stuff['prices'].length; i++){
       uber_box[i].innerHTML = uber_stuff['prices'][i]['display_name'] + " - " + uber_stuff['prices'][i]['estimate'];
+      uber_box[i].style.display = 'block';
     }
 }
 
@@ -195,6 +197,7 @@ if(Object.keys(lyft_stuff).length === 0 && lyft_stuff.constructor === Object){
     for(i = 0; i < lyft_stuff['cost_estimates'].length; i++){
         var curr = lyft_stuff['cost_estimates'][i];
       lyft_box[i].innerHTML = curr['display_name'] + " - " + "$" + curr['estimated_cost_cents_min']/100 + "-" + curr['estimated_cost_cents_max']/100;
+        lyft_box[i].style.display = 'block';
     }
 }
     var lots_stuff = {{ lots | tojson }};
