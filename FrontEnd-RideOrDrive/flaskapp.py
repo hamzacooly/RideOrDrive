@@ -11,7 +11,6 @@ from lyft_rides.client import LyftRidesClient
 from parking_scraper import ParkMeScraper
 from weather_scraper import WeatherScraper
 import urllib
-from auth import User
 
 app = Flask(__name__)
 app.secret_key = 'SUPERSECRETSECRETKEY'
