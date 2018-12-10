@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request, url_for, abort, redirect
-from flask_login import LoginManager, login_required, login_user, logout_user, UserMixin, current_user
+from flask import Flask, render_template, request, url_for, abort, redirect, flash
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from flask_pymongo import PyMongo
-from werkzeug.security import generate_password_hash, check_password_hash
 import os, json
 from pygeocoder import Geocoder
 from lyft_rides.auth import ClientCredentialGrant
@@ -11,6 +10,7 @@ from lyft_rides.session import Session as Session2
 from lyft_rides.client import LyftRidesClient
 from parking_scraper import ParkMeScraper
 import urllib
+from auth import User
 
 app = Flask(__name__)
 app.secret_key = 'SUPERSECRETSECRETKEY'
@@ -43,29 +43,6 @@ auth_flow = ClientCredentialGrant(
 lyft_session = auth_flow.get_session()
 lyft_client = LyftRidesClient(lyft_session)
 
-class User(UserMixin):
-
-    def __init__(self, username, password):
-        self.username = username
-        self.set_password(password)
-        self.history = []
-
-    def set_password(self, password):
-        self.pw_hash = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.pw_hash, password)
-    
-    def add_history_item(self, item):
-        self.history.append(item)
-    
-    def get_history(self):
-        return self.history
-    
-    @staticmethod
-    def query_user(user):
-         return appDB.users.find_one({'username': user})
-
 @login_manager.user_loader
 def load_user(id):
     return User.query_user(id)
@@ -87,7 +64,19 @@ def login():
         
         username = request.form['username']
         pw = request.form['password']
-        
+        user = appDB.users.find_one({'_id': username})
+        if user:
+            myuser = User(user._id, user.password, user.history)
+            if myuser.check_password(pw):
+                login_user(myuser)
+                redirect(url_for(index))
+            else:
+                flash("Incorrect password, please try again")
+        else:
+            myuser = User(username, pw, [])
+            appDB.users.insert({"_id": myuser.username, \
+                                "password": myuser.pw_hash, \
+                                "history": []})
 
 @app.route('/static/history.html')
 @login_required
@@ -98,7 +87,6 @@ def history():
 @app.route('/result', methods=['POST'])
 def result():
     if(request.method == 'POST'):
-        print("REACHED HERE")
         # Do some stuff here with the variables
         source = request.form.get('source')
         destination = request.form.get('destination')
