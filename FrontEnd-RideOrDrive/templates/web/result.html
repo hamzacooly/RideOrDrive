@@ -79,6 +79,21 @@
 
           <!-- Cards Rows -->
           <div class="row">
+              <div class="col-sm-10">
+                  <div class="card mb-3 mb-lg-2">
+                      <div class="card-body">
+                        <h5 class="card-title text-muted text-uppercase text-center">Weather</h5>
+                        <h6 class="card-price text-center"><span class="period"></span></h6>
+                        <hr>
+                        <ul class="fa-ul" id="weather">
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>First Option</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Second Option</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Third Option </li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Third Option </li>
+                        </ul>
+                      </div>
+                    </div>
+              </div>
 
               <!-- Card #1 -->
               <div class="col-sm-10">
@@ -175,8 +190,21 @@
     var source = "{{ source }}";
     var destination = "{{ destination }}";
     var uber_stuff = {{ uber | tojson }};
+    var weather_details = {{ weather | tojson }};
 
-    var uber_box = document.querySelectorAll("#uber > li")
+    var weather_card = document.querySelectorAll("#weather > li");
+    weather_card[0].innerHTML = "Overview: " + weather_details['desc'];
+    weather_card[0].style.display = 'block';
+    weather_card[1].innerHTML = "Temp: " + weather_details['temp'];
+    weather_card[2].innerHTML = "Vis.: " + weather_details['visibility'];
+    weather_card[3].innerHTML = "Humidity: " + weather_details['humidity'];
+    weather_card[1].style.display = 'block';
+    weather_card[2].style.display = 'block';
+    weather_card[3].style.display = 'block';
+
+    var lotsMarkers = {{lotsMarkers | tojson}};
+
+    var uber_box = document.querySelectorAll("#uber > li");
 if(Object.keys(uber_stuff).length === 0 && uber_stuff.constructor === Object){
     uber_box[0].innerHTML = "Distance too far (>100mi), use Uber client for accurate estimate.";
     uber_box[0].style.display = 'block';
@@ -290,6 +318,19 @@ if(Object.keys(lyft_stuff).length === 0 && lyft_stuff.constructor === Object){
 
 
       calculateAndDisplayRoute(directionsService, directionsDisplay);
+
+      for(i = 0; i < lotsMarkers.length; i++){
+          var myLatlng = new google.maps.LatLng(lotsMarkers[i]['mlat'],lotsMarkers[i]['mlong']);
+          var marker = new google.maps.Marker({
+            position: myLatlng,
+            title: lotsMarkers[i]['name']
+        });
+
+        // To add the marker to the map, call setMap();
+        marker.setMap(map);
+
+      }
+
 
     }
 

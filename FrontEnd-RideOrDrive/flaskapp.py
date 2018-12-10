@@ -55,7 +55,7 @@ class User(UserMixin):
     
     def get_history(self):
         return self.history
-    
+
     @staticmethod
     def query_user(id):
         user = appDB.users.find_one({'_id': id})
@@ -125,8 +125,10 @@ def result():
 
         slat,slong = geo.geocode(source).coordinates
         dlat,dlong = geo.geocode(destination).coordinates
+        dregion = geo.reverse_geocode(dlat,dlong).county
 
         lots = ParkMeScraper().getLots(dlat, dlong)[:5]
+
 
         weather = WeatherScraper().get_weather(dlat,dlong)
         print(weather)
@@ -141,7 +143,17 @@ def result():
         except:
             ride_estimates_lyft = {}
 
-        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL)
+
+        lotsMarkers = []
+        for lot in lots:
+            entry={}
+            entry['name']= lot['name']
+            mlat,mlong = geo.geocode(lot['address']+" "+dregion).coordinates
+            entry['mlat'] = mlat
+            entry['mlong'] = mlong
+            lotsMarkers.append(entry)
+
+        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, weather=weather, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL, lotsMarkers=lotsMarkers)
 
         # return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots)
     else:

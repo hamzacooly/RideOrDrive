@@ -19,7 +19,7 @@ class ParkMeScraper:
 
         url = self.pagetext+query
         self.driver.get(url)
-        time.sleep(10)
+        time.sleep(1.5)
         soup = BeautifulSoup(self.driver.page_source, 'html.parser')
 
         lots = []
