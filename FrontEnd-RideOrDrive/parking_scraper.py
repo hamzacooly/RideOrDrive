@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import time
 import os
 
@@ -13,7 +14,8 @@ class ParkMeScraper:
         self.pagetext = 'https://www.parkme.com/'
         options = Options()
         options.set_headless(True)
-        self.driver = webdriver.Firefox(options=options)
+        binary = FirefoxBinary(os.path.join(os.path.abspath(os.getcwd()), 'geckodriver'))
+        self.driver = webdriver.Firefox(firefox_binary=binary, options=options)
 
 
     def getLots(self, lat, lon):
