@@ -128,6 +128,7 @@ def result():
 
         lots = ParkMeScraper().getLots(dlat, dlong)[:5]
 
+
         weather = WeatherScraper().get_weather(dlat,dlong)
         print(weather)
 
@@ -141,7 +142,20 @@ def result():
         except:
             ride_estimates_lyft = {}
 
-        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL)
+
+        lotsMarkers = []
+        for lot in lots:
+            entry={}
+            entry['name']= lot['name']
+            mlat,mlong = geo.geocode(lot['address']).coordinates
+            entry['mlat'] = mlat
+            entry['mlong'] = mlong
+            lotsMarkers.append(entry)
+
+
+
+
+        return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL, lotsMarkers=lotsMarkers)
 
         # return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots)
     else:
