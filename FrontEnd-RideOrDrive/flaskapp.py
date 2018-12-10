@@ -32,6 +32,7 @@ uber_client = UberRidesClient(uber_session)
 
 googleApiKey = secrets['google_api_key']
 geo = Geocoder(api_key=googleApiKey)
+pms = ParkMeScraper()
 
 auth_flow = ClientCredentialGrant(
             'd-0DVSBkAukU',
@@ -48,11 +49,11 @@ class User(UserMixin):
         self.id = username
         self.pw_hash = password
         self.history = history
-    
+
     def add_history_item(self, item):
         self.history.append(item)
         appDB.users[self.id]['history'].insert_one(item)
-    
+
     def get_history(self):
         return self.history
 
@@ -135,7 +136,7 @@ def result():
 
         dregion = geo.reverse_geocode(dlat,dlong).county
 
-        lots = ParkMeScraper().getLots(dlat, dlong)[:5]
+        lots = pms.getLots(dlat, dlong)[:5]
 
 
         weather = WeatherScraper().get_weather(dlat,dlong)
