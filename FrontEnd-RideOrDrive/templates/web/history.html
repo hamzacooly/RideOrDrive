@@ -75,7 +75,7 @@
           </thead>
           <tbody>
             {% for item in history %}
-              <tr>
+              <tr style="cursor:pointer">
                 <th scope="row">{{ loop.index }}</th>
                 <td>{{item['time']}}</td>
                 <td>{{item['source']}}</td>
@@ -85,7 +85,6 @@
           </tbody>
         </table>
   </body>
-</script>
 <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
 
@@ -100,9 +99,11 @@
 <script src="{{ url_for('static', filename='js/main.js')}}"></script>
 <script>
   rows = document.querySelectorAll("table tbody tr")
-  for (row in rows){
-    row.onclick = function(event){
-      window.location = "{{url_for('results')}}" + "?time=" + row.getElementsByTagName('td')[0];
+  console.log(rows)
+  for (var i = 0; i < rows.length; i++){
+    var me = rows[i];
+    me.onclick = function(event){
+      window.location = "{{url_for('result')}}" + "?time=" + me.getElementsByTagName('td')[0].innerHTML;
     }
   }
 </script>
