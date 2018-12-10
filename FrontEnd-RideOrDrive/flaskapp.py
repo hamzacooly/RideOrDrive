@@ -107,6 +107,7 @@ def login():
             appDB.users.insert_one({"_id": myuser.id, \
                                 "password": myuser.pw_hash, \
                                 "history": []})
+            login_user(myuser)
             return redirect(url_for('index'))
 
 @app.route('/static/history.html')
