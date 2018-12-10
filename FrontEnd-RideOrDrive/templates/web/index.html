@@ -64,12 +64,10 @@
             <form action = "/result" method="POST" class ="form-inline element-animate" id="search-form">
                 <label for="s" class="sr-only">Location</label>
                 <input id="src-field" name = "source" class="form-control form-control-block search-input" id="autocompleteSource" placeholder="Input Source" required>
-                <button onclick="fillLocationS()">Use Current Location</button>
+                <button onclick="fillLocationS()" class = "btn btn-secondary btn-large" style = "font-size: 15px" >Current Location</button>
                 <input id="dst-field" name = "destination" class="form-control form-control-block search-input" id="autocompleteDestination" placeholder="Input Destination" required >
-                <button onclick="fillLocationD()">Use Current Location</button>
-                <div class = container>
-                <input type="submit" value = "Search" class="btn btn-primary" id = "Search">
-                </div>
+                <button onclick="fillLocationD()" class = "btn btn-secondary btn-large"style = "font-size: 15px" >Current Location</button>
+                <input type="submit" value = "Search" class="btn btn-primary"  style="margin-bottom: 1.25em; width: 900px" id = "Search">
                 <iframe width="900" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=10&center=30.2672%2C-97.7431&key=AIzaSyDHycBszJgn0XzNatu1TKn3ZX2XS-W3ec4" allowfullscreen></iframe>
                 </form>
   
