@@ -13,9 +13,8 @@ class ParkMeScraper:
         os.environ['PATH'] = os.path.abspath(os.getcwd()) + ":" + os.environ['PATH']
         self.pagetext = 'https://www.parkme.com/'
         options = Options()
-        options.set_headless(True)
-        binary = FirefoxBinary(os.path.join(os.path.abspath(os.getcwd()), 'geckodriver'))
-        self.driver = webdriver.Firefox(firefox_binary=binary, options=options)
+        options.set_headless(True)=
+        self.driver = webdriver.Firefox(options=options)
 
 
     def getLots(self, lat, lon):
