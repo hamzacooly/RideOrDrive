@@ -134,7 +134,7 @@
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
                             <li><span class="fa-li"><i class="fas fa-check"></i></span>Sixth Option - cost</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                        <a href="#" class="btn btn-block btn-primary text-uppercase"onclick="requestLyft()">Button</a>
                       </div>
                     </div>
               </div>
@@ -208,6 +208,17 @@
 
         window.location.href = myURL;
     }
+
+
+    function requestLyft() {
+
+        var slat = "{{slat}}", slong = "{{slong}}", dlat = "{{dlat}}", dlong = "{{dlong}}";
+        var myLyftURL= "https://ride.lyft.com/request?destination=@"+dlat+","+dlong+"&pickup=@"+slat+","+slong+"&rideType=lyft";
+
+
+        window.location.href = myLyftURL;
+    }
+
 
     var lots_box = document.querySelectorAll("#lots > li");
     for(i = 0; i < lots_stuff.length; i++){
