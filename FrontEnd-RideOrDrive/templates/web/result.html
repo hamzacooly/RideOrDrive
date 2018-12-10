@@ -287,7 +287,7 @@ if(Object.keys(lyft_stuff).length === 0 && lyft_stuff.constructor === Object){
     } else{
     for(i = 0; i < lots_stuff.length; i++){
         var curr = lots_stuff[i];
-        lots_box[i].innerHTML = curr['name'] + " - "  + curr['price, hourly'] + " - " + curr['address'] ;
+        lots_box[i].innerHTML = "Option " + (i+1) + ": " +curr['name'] + " - "  + curr['price, hourly'] + " - " + curr['address'] + "\n\n";
         lots_box[i].style.display = "block";}
     }
 
