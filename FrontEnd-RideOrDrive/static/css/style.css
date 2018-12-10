@@ -412,6 +412,7 @@ textarea.form-control {
 .btn.btn-primary {
   color: #fff;
   border-width: 2px;
+  width:900;
 }
 
 .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {

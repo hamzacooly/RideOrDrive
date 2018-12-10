@@ -50,7 +50,7 @@
     </nav>
   </header>
   <!-- END header -->
-  <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5"  style="background-image: url('static/images/big_image_1.jpg')">
+  <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5"  style="background-image: url('/static/images/big_image_1.jpg')">
     <div class="container">
       <div class="row align-items-center site-hero-inner justify-content-center">
         <div class="col-md-8 text-center">
@@ -82,27 +82,47 @@
 
               <!-- Card #1 -->
               <div class="col-sm-10">
-                  <div class="card mb-5 mb-lg-0">
+                  <div class="card mb-7 mb-lg-2">
                       <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Uber</h5>
                         <h6 class="card-price text-center"><span class="period"></span></h6>
                         <hr>
                         <ul class="fa-ul" id="uber">
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
-                          <li ><span class="fa-li"><i class="fas fa-check"></i></span>Sixth Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
+                          <li style="display:none" ><span class="fa-li"><i class="fas fa-check"></i></span>Sixth Option - cost</li>
                         </ul>
-                        <a class="btn btn-block btn-primary text-uppercase" onclick="requestUber()">Button</a>
+                        <a class="btn btn-block btn-primary text-white text-uppercase" onclick="requestUber()">Request Uber</a>
                       </div>
                     </div>
               </div>
                 
               <!-- Card #2 -->
               <div class="col-sm-10">
-                  <div class="card mb-5 mb-lg-0">
+                <div class="card mb-7 mb-lg-2">
+                    <div class="card-body">
+                      <h5 class="card-title text-muted text-uppercase text-center">Lyft</h5>
+                      <h6 class="card-price text-center"><span class="period"></span></h6>
+                      <hr>
+                      <ul class="fa-ul" id="lyft">
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
+                          <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Sixth Option - cost</li>
+                      </ul>
+                      <a class="btn btn-block btn-primary text-white text-uppercase" onclick="requestLyft()">Request Lyft</a>
+                    </div>
+                  </div>
+            </div>
+
+              <!-- Card #3 -->
+              <div class="col-sm-10">
+                  <div class="card mb-7 mb-lg-2">
                       <div class="card-body">
                         <h5 class="card-title text-muted text-uppercase text-center">Parking Garage</h5>
                         <h6 class="card-price text-center"><span class="period"></span></h6>
@@ -114,30 +134,12 @@
                             <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
                             <li style="display:none"><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
                         </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+                       <!-- <a class="btn btn-block btn-primary text-white text-uppercase">Button</a> -->
                       </div>
                     </div>
               </div>
 
-              <!-- Card #3 -->
-              <div class="col-sm-10">
-                  <div class="card mb-5 mb-lg-0">
-                      <div class="card-body">
-                        <h5 class="card-title text-muted text-uppercase text-center">Lyft</h5>
-                        <h6 class="card-price text-center"><span class="period"></span></h6>
-                        <hr>
-                        <ul class="fa-ul" id="lyft">
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>First Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Second Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Third Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Fourth Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Fifthe Option - cost</li>
-                            <li><span class="fa-li"><i class="fas fa-check"></i></span>Sixth Option - cost</li>
-                        </ul>
-                        <a href="#" class="btn btn-block btn-primary text-uppercase"onclick="requestLyft()">Button</a>
-                      </div>
-                    </div>
-              </div>
+             
 
           </div>
 
@@ -175,21 +177,30 @@
     var uber_stuff = {{ uber | tojson }};
 
     var uber_box = document.querySelectorAll("#uber > li")
+if(Object.keys(uber_stuff).length === 0 && uber_stuff.constructor === Object){
+    uber_box[0].innerHTML = "Distance too far (>100mi), use Uber client for accurate estimate.";
+    uber_box[0].style.display = 'block';
+}else {
     for(i = 0; i < uber_stuff['prices'].length; i++){
       uber_box[i].innerHTML = uber_stuff['prices'][i]['display_name'] + " - " + uber_stuff['prices'][i]['estimate'];
+      uber_box[i].style.display = 'block';
     }
-
+}
 
     var lyft_stuff = {{ lyft | tojson }};
+    
+if(Object.keys(lyft_stuff).length === 0 && lyft_stuff.constructor === Object){
+    console.log('fook2');
+          }else{
 
     var lyft_box = document.querySelectorAll("#lyft > li");
     for(i = 0; i < lyft_stuff['cost_estimates'].length; i++){
         var curr = lyft_stuff['cost_estimates'][i];
       lyft_box[i].innerHTML = curr['display_name'] + " - " + "$" + curr['estimated_cost_cents_min']/100 + "-" + curr['estimated_cost_cents_max']/100;
+        lyft_box[i].style.display = 'block';
     }
-
+}
     var lots_stuff = {{ lots | tojson }};
-
 
 
 
@@ -221,10 +232,14 @@
 
 
     var lots_box = document.querySelectorAll("#lots > li");
+    if(lots_stuff.length == 0) {
+        lots_box[0].innerHTML = "No Available Parking Lots Online Near Destination";
+        lots_box[0].style.display = "block";
+    } else{
     for(i = 0; i < lots_stuff.length; i++){
         var curr = lots_stuff[i];
         lots_box[i].innerHTML = curr['name'] + " - "  + curr['price, hourly'] + " - " + curr['address'] ;
-        lots_box[i].style.display = "block";
+        lots_box[i].style.display = "block";}
     }
 
 
@@ -311,4 +326,4 @@
 
 </body>
 
-</html
+</html>

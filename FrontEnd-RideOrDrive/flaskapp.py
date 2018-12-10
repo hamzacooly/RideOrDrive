@@ -29,8 +29,6 @@ uberServerKey = secrets['uber-server-key']
 uber_session = Session(server_token=uberServerKey)
 uber_client = UberRidesClient(uber_session)
 
-
-
 googleApiKey = secrets['google_api_key']
 geo = Geocoder(api_key=googleApiKey)
 
@@ -61,7 +59,7 @@ def login():
     else:
         if current_user.is_authenticated:
             return redirect(url_for('index'))
-        
+
         username = request.form['username']
         pw = request.form['password']
         user = appDB.users.find_one({'_id': username})
@@ -102,8 +100,15 @@ def result():
 
         lots = ParkMeScraper().getLots(dlat, dlong)[:5]
 
-        ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
-        ride_estimates_lyft = lyft_client.get_cost_estimates(slat, slong, dlat, dlong).json
+        try:
+            ride_estimates_uber = uber_client.get_price_estimates(slat, slong, dlat, dlong).json
+        except:
+            ride_estimates_uber = {}
+
+        try:
+            ride_estimates_lyft = lyft_client.get_cost_estimates(slat, slong, dlat, dlong).json
+        except:
+            ride_estimates_lyft = {}
 
         return render_template('web/result.html', source=source, destination=destination, uber=ride_estimates_uber, lyft=ride_estimates_lyft, lots=lots, slong=slong,slat=slat,dlong=dlong,dlat=dlat, destinationURL=destinationURL,sourceURL=sourceURL)
 
