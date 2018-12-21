@@ -356,17 +356,75 @@ if(Object.keys(lyft_stuff).length === 0 && lyft_stuff.constructor === Object){
 
       calculateAndDisplayRoute(directionsService, directionsDisplay);
 
-      for(i = 0; i < lotsMarkers.length; i++){
-          var myLatlng = new google.maps.LatLng(lotsMarkers[i]['mlat'],lotsMarkers[i]['mlong']);
-          var marker = new google.maps.Marker({
-            position: myLatlng,
-            title: lotsMarkers[i]['name']
+
+
+
+          var myLatlng0 = new google.maps.LatLng(lotsMarkers[0]['mlat'],lotsMarkers[0]['mlong']);
+          var myLatlng1 = new google.maps.LatLng(lotsMarkers[1]['mlat'],lotsMarkers[1]['mlong']);
+          var myLatlng2 = new google.maps.LatLng(lotsMarkers[2]['mlat'],lotsMarkers[2]['mlong']);
+          var myLatlng3 = new google.maps.LatLng(lotsMarkers[3]['mlat'],lotsMarkers[3]['mlong']);
+          var myLatlng4 = new google.maps.LatLng(lotsMarkers[4]['mlat'],lotsMarkers[4]['mlong']);
+
+          var infowindow0 = new google.maps.InfoWindow({
+          content: lotsMarkers[0]['name']
+        });
+          var infowindow1 = new google.maps.InfoWindow({
+          content: lotsMarkers[1]['name']
+        });
+          var infowindow2 = new google.maps.InfoWindow({
+          content: lotsMarkers[2]['name']
+        });
+          var infowindow3 = new google.maps.InfoWindow({
+          content: lotsMarkers[3]['name']
+        });
+          var infowindow4 = new google.maps.InfoWindow({
+          content: lotsMarkers[4]['name']
         });
 
-        // To add the marker to the map, call setMap();
-        marker.setMap(map);
 
-      }
+          var marker0 = new google.maps.Marker({
+            position: myLatlng0,
+            title: lotsMarkers[0]['name']
+        });
+          var marker1 = new google.maps.Marker({
+            position: myLatlng1,
+            title: lotsMarkers[1]['name']
+        });
+          var marker2 = new google.maps.Marker({
+            position: myLatlng2,
+            title: lotsMarkers[2]['name']
+        });
+          var marker3 = new google.maps.Marker({
+            position: myLatlng3,
+            title: lotsMarkers[3]['name']
+        });
+          var marker4 = new google.maps.Marker({
+            position: myLatlng4,
+            title: lotsMarkers[4]['name']
+        });
+
+
+          marker0.addListener('click', function() {
+          infowindow0.open(map, marker0);
+        });marker1.addListener('click', function() {
+          infowindow1.open(map, marker1);
+        });marker2.addListener('click', function() {
+          infowindow2.open(map, marker2);
+        });marker3.addListener('click', function() {
+          infowindow3.open(map, marker3);
+        });marker4.addListener('click', function() {
+          infowindow4.open(map, marker4);
+        });
+
+
+        // To add the marker to the map, call setMap();
+        marker0.setMap(map);
+        marker1.setMap(map);
+        marker2.setMap(map);
+        marker3.setMap(map);
+        marker4.setMap(map);
+
+
 
 
     }
