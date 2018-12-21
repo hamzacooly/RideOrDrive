@@ -119,6 +119,7 @@
       function fillLocationS() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPositionSRC);
+            console.log(navigator.geolocation.getCurrentPosition(showPositionSRC));
         } else { 
             console.log("Geolocation is not supported by this browser.");
         }

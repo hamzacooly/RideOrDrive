@@ -1,9 +1,9 @@
 from flask import render_template, request, redirect, flash, url_for, Blueprint
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash
-from .flaskapp import app, uber_client, lyft_client, geo, pms, ws
-from .auth import login_manager, User, check_password
-from .db import appDB
+from flaskapp import app, uber_client, lyft_client, geo, pms, ws
+from auth import login_manager, User, check_password
+from db import appDB
 import urllib, time
 
 @app.route('/static/index.html')
