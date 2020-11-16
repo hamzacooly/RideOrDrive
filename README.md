@@ -7,5 +7,3 @@ Some of the features that we added include:
 - MongoDB Atlas cluster
 - Google's Geocoding, Geocaching, Maps APIs
 - Web scraper which collects parking and weather information
-
-Currently available at: http://immense-sands-70973.herokuapp.com/
